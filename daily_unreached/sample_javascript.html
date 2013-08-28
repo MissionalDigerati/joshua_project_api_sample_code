@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Joshua Project | Sample Code (Javascript)</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript">
+			var DOMAIN = 'http://jpapi.codingstudio.org';
+			var API_KEY = '4a2bab35f1c7';
+			jQuery(document).ready(function($) {
+				$('a.domain-link').attr('href', DOMAIN);
+				$.ajax({
+					url: DOMAIN+'/v1/people_groups/daily_unreached.json',
+					dataType: 'json',
+					data: {api_key: API_KEY},
+				})
+				.done(function(data) {
+					var unreached = data[0];
+					/* Set ALL the link for the people group */
+					$('.pg-link').attr({'href': unreached['PeopleGroupURL']});
+					/* Set ALL the links for the country url*/
+					$('.country-link').attr({'href': unreached['CountryURL']});
+					/* Create the people group image */
+					$('a#people-group-image').append($('<img/>').attr({	'src': unreached['PeopleGroupPhotoURL'], 
+																		'width': '128', 
+																		'height': '160',
+																		'alt': 'Unreached of the Day Photo'
+																	})
+													);
+					/* Set the People Group Name*/
+					$('.pg-name').text(unreached['PeopNameInCountry']);
+					/* Set the country name */
+					$('.country-name').text(unreached['Ctry']);
+					/* Set the Population */
+					$('.pg-population').text(numberWithCommas(unreached['Population']));
+					/* Set the Language */
+					$('.pg-language').text(unreached['PrimaryLanguageName']);
+					/* Set the Primary Religion */
+					$('.pg-religion').text(unreached['PrimaryReligion']);
+					/* Set the Percent Evangelical */
+					if (unreached['PercentEvangelical'] == null) {
+						percent_evangelical = '0.00';
+					} else {
+						percent_evangelical = parseFloat(unreached['PercentEvangelical']).toFixed(2);
+					}; 
+					$('.pg-evangelical').text(percent_evangelical+'%');
+					/* Set the progress scale */
+					$('.pg-scale').text(unreached['JPScale']);
+					/* Set the scale text */
+					$('.pg-scale-text').text(unreached['JPScaleText']);
+					$('a#progress-scale-image').append($('<img/>').attr({	'src': unreached['JPScaleImageURL'], 
+																			'alt': 'Progress Scale'
+																	})
+													);
+					$('div#jp_widget').fadeIn('slow');
+				})
+				.fail(function() {
+					$('div#jp_widget').html('Unable to reach Joshua Project.').fadeIn('slow');
+				});
+				
+			});
+			/* Number formating method. */
+			function numberWithCommas(x) {
+			    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			This Sample Code is designed to demonstrate how to retrieve the Daily Unreached from the <a href="" class="domain-link">Joshua Project API</a> using Javascript.
+			It utilizes the <a href="http://jquery.com/" target="_blank">JQuery Javascript Framework</a>.
+		</p>
+		<div id="jp_widget">
+	        <div class="upgotd upgotd-title">
+	        	<a href="http://www.joshuaproject.net/upgotdfeed.php" class="upgotd-link">Unreached of the Day</a>
+	        </div>
+	        <div class="upgotd-image">
+	        	<a href="#" class="upgotd-link pg-link" id="people-group-image">
+	        	</a>
+	        </div>
+	        <div class="upgotd upgotd-pray">Please pray for the ...</div>
+	        <div class="upgotd upgotd-people">
+	        	<a href="#" class="upgotd-link pg-link pg-name"></a> of <a href="#" class="upgotd-link country-link country-name"></a>
+	        </div>
+	        <table align="center" class="upgotd-table" cellpadding="0" cellspacing="0">
+	            <tbody><tr>
+	                <td width="65">Population:</td>
+	                <td width="135" class="pg-population"></td>
+	            </tr>
+	            <tr>
+	                <td>Language:</td>
+	                <td class="pg-language"></td>
+	            </tr>
+	            <tr>
+	                <td>Religion:</td>
+	                <td class="pg-religion"></td>
+	            </tr>
+	            <tr>
+	                <td>Evangelical:</td>
+	                <td class="pg-evangelical"></td>
+	            </tr>
+	            <tr>
+	                <td>Status:</td>
+	                <td>
+	                	<a href="http://www.joshuaproject.net/definitions.php?term=25" class="upgotd-link pg-scale-text"></a> (<a href="http://www.joshuaproject.net/global-progress-scale.php" class="upgotd-link pg-scale"></a>&nbsp;<a href="http://www.joshuaproject.net/global-progress-scale.php" class="upgotd-link" id="progress-scale-image"></a>)
+	                </td>
+	            </tr>
+	        </tbody></table>
+	        <div class="upgotd upgotd-footer">Add this daily global vision feature to <br><a href="/upgotdfeed.php" class="upgotd-link"><b>your website</b></a> or get it <a href="http://www.unreachedoftheday.org/unreached-email.php" class="upgotd-link"><b>by email</b></a>.</div>
+		</div>
+	</body>
+</html>
