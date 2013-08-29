@@ -17,6 +17,22 @@ Javascript
 2. Save and close the file
 3. Now open the sample_javascript.html in your favorite browser
 
+PHP
+===
+
+###Files
+
+* [sample_php.php](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/sample_php.php)
+* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/css/styles.css)
+
+###Instructions
+
+In order to run the PHP script locally,  you will need to have PHP running on your local machine.
+
+1. Open the sample_php.php file, and add your API key
+2. Save and close the file
+3. Now open the sample_php.php in your favorite browser (You will need a Virtual Host setup for this)
+
 Ruby
 ====
 
