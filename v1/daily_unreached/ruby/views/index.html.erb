@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Joshua Project | Sample Code (Javascript)</title>
+		<link rel="stylesheet" type="text/css" href="../../css/styles.css">
+	</head>
+	<body>
+		<p>
+			This Sample Code is designed to demonstrate how to retrieve the Daily Unreached from the <a href="" class="domain-link">Joshua Project API</a> using Ruby.
+		</p>
+		<div id="jp_widget">
+	        <div class="upgotd upgotd-title">
+	        	<a href="http://www.joshuaproject.net/upgotdfeed.php" class="upgotd-link">Unreached of the Day</a>
+	        </div>
+	        <div class="upgotd-image">
+	        	<a href="<%= unreached['PeopleGroupURL'] %>" class="upgotd-link pg-link" id="people-group-image">
+	        		<img src="<%= unreached['PeopleGroupPhotoURL'] %>" height="160" width="128" alt="Unreached of the Day Photo">
+	        	</a>
+	        </div>
+	        <div class="upgotd upgotd-pray">Please pray for the ...</div>
+	        <div class="upgotd upgotd-people">
+	        	<a href="<%= unreached['PeopleGroupURL'] %>" class="upgotd-link pg-link pg-name"><%= unreached['PeopNameInCountry'] %></a> of <a href="<%= unreached['CountryURL'] %>" class="upgotd-link country-link country-name"><%= unreached['Ctry'] %></a>
+	        </div>
+	        <table align="center" class="upgotd-table" cellpadding="0" cellspacing="0">
+	            <tbody><tr>
+	                <td width="65">Population:</td>
+	                <td width="135" class="pg-population"><%= unreached['Population'] %></td>
+	            </tr>
+	            <tr>
+	                <td>Language:</td>
+	                <td class="pg-language"><%= unreached['PrimaryLanguageName'] %></td>
+	            </tr>
+	            <tr>
+	                <td>Religion:</td>
+	                <td class="pg-religion"><%= unreached['PrimaryReligion'] %></td>
+	            </tr>
+	            <tr>
+	                <td>Evangelical:</td>
+	                <td class="pg-evangelical"><%= unreached['PercentEvangelical'] %>%</td>
+	            </tr>
+	            <tr>
+	                <td>Status:</td>
+	                <td>
+	                	<a href="http://www.joshuaproject.net/definitions.php?term=25" class="upgotd-link pg-scale-text">
+	                		<%= unreached['JPScaleText'] %>
+	                	</a> (
+	                	<a href="http://www.joshuaproject.net/global-progress-scale.php" class="upgotd-link pg-scale">
+	                		<%= unreached['JPScale'] %>
+	                	</a>
+	                	<a href="http://www.joshuaproject.net/global-progress-scale.php" class="upgotd-link" id="progress-scale-image">
+	                		<img src="<%= unreached['JPScaleImageURL'] %>" alt="Progress Scale">
+	                	</a>)
+	                </td>
+	            </tr>
+	        </tbody></table>
+	        <div class="upgotd upgotd-footer">Add this daily global vision feature to <br><a href="/upgotdfeed.php" class="upgotd-link"><b>your website</b></a> or get it <a href="http://www.unreachedoftheday.org/unreached-email.php" class="upgotd-link"><b>by email</b></a>.</div>
+		</div>
+	</body>
+</html>
