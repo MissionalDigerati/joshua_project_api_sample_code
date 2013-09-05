@@ -33,6 +33,28 @@ In order to run the PHP script locally,  you will need to have PHP running on yo
 2. Save and close the file
 3. Now open the sample_php.php in your favorite browser (You will need a Virtual Host setup for this)
 
+Python
+======
+
+###Files
+
+* [python/sample_python.py](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/python/sample_python.py)
+* [python/views/index.html](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/python/views/index.html)
+* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/css/styles.css)
+
+###Requirements
+
+You will need Python on your local machine, and the ability to run it from Terminal.
+
+###Instructions
+
+The provided Python script will generated the appropriate HTML file for previewing the Unreached People of the Day widget.  Here is how you generate the file:
+
+1. Open the sample_python.py file, and add your API key
+2. Save and close the file
+3. In your terminal run `python sample_python.py`
+4. Now open the "generated_code/widget.html" in your favorite browser
+
 Ruby
 ====
 
@@ -49,7 +71,7 @@ You need to install the following gems:
 * [Erubis](http://rubygems.org/gems/erubis)
 * [JSON](http://rubygems.org/gems/json)
 
-You will also need Ruby on your local machine.
+You will also need Ruby on your local machine, and the ability to run it from Terminal.
 
 ###Instructions
 
