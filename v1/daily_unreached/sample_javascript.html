@@ -25,64 +25,56 @@ along with this program.  If not, see
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
-			var DOMAIN = 'http://jpapi.codingstudio.org';
-			var API_KEY = YOUR_API_KEY;
-			jQuery(document).ready(function($) {
-				$('a.domain-link').attr('href', DOMAIN);
-				$.ajax({
-					url: DOMAIN+'/v1/people_groups/daily_unreached.json',
-					dataType: 'json',
-					data: {api_key: API_KEY},
-				})
-				.done(function(data) {
-					var unreached = data[0];
-					/* Set ALL the link for the people group */
-					$('.pg-link').attr({'href': unreached['PeopleGroupURL']});
-					/* Set ALL the links for the country url*/
-					$('.country-link').attr({'href': unreached['CountryURL']});
-					/* Create the people group image */
-					$('a#people-group-image').append($('<img/>').attr({	'src': unreached['PeopleGroupPhotoURL'], 
-																		'width': '128', 
-																		'height': '160',
-																		'alt': 'Unreached of the Day Photo'
-																	})
-													);
-					/* Set the People Group Name*/
-					$('.pg-name').text(unreached['PeopNameInCountry']);
-					/* Set the country name */
-					$('.country-name').text(unreached['Ctry']);
-					/* Set the Population */
-					$('.pg-population').text(numberWithCommas(unreached['Population']));
-					/* Set the Language */
-					$('.pg-language').text(unreached['PrimaryLanguageName']);
-					/* Set the Primary Religion */
-					$('.pg-religion').text(unreached['PrimaryReligion']);
-					/* Set the Percent Evangelical */
+		    var DOMAIN = 'http://jpapi.codingstudio.org';
+		    var API_KEY = YOUR_API_KEY;
+		    jQuery(document).ready(function($) {  
+		        $.ajax({
+		            url: DOMAIN+'/v1/people_groups/daily_unreached.json',
+		            dataType: 'json',
+		            data: {api_key: API_KEY},
+            		type: 'GET'
+		        })
+		        .done(function(data) {
+		        	/* Set the text of each class to the appropriate data */
+		        	var unreached = data[0];
+		        	$('.country-name').text(unreached['Ctry']);
+		        	$('.pg-language').text(unreached['PrimaryLanguageName']);
+		        	$('.pg-name').text(unreached['PeopNameInCountry']);
+		        	$('.pg-religion').text(unreached['PrimaryReligion']);
+		        	$('.pg-scale').text(unreached['JPScale']);
+		        	$('.pg-scale-text').text(unreached['JPScaleText']);
+		        	/* Handle the two links that need URL's*/
+		        	$('.country-link').attr('href', unreached['CountryURL']);
+		        	$('.pg-link').attr('href', unreached['PeopleGroupURL']);
+		        	/* Append the images */
+		            var pgSettings = {'height': '160px', 'width': '128px'};
+		        	var pgImg = $('<img/>').attr('src', unreached['PeopleGroupPhotoURL']).css(pgSettings);
+            		$('#people-group-image').append(pgImg);
+            		var scaleImg = $('<img/>').attr('src', unreached['JPScaleImageURL']);
+            		$('#progress-scale-image').append(scaleImg);
+            		/* Set the Percent Evangelical */
 					if (unreached['PercentEvangelical'] == null) {
 						percent_evangelical = '0.00';
 					} else {
 						percent_evangelical = parseFloat(unreached['PercentEvangelical']).toFixed(2);
 					}; 
 					$('.pg-evangelical').text(percent_evangelical+'%');
-					/* Set the progress scale */
-					$('.pg-scale').text(unreached['JPScale']);
-					/* Set the scale text */
-					$('.pg-scale-text').text(unreached['JPScaleText']);
-					$('a#progress-scale-image').append($('<img/>').attr({	'src': unreached['JPScaleImageURL'], 
-																			'alt': 'Progress Scale'
-																	})
-													);
+					/* Set the Population */
+					$('.pg-population').text(numberWithCommas(unreached['Population']));
+					/* Fade in the widget */
 					$('div#jp_widget').fadeIn('slow');
-				})
-				.fail(function() {
-					$('div#jp_widget').html('Unable to reach Joshua Project.').fadeIn('slow');
-				});
-				
-			});
+		        })
+		        .fail(function(jqXHR, textStatus, errorThrown) {
+		            /* Code in here runs when the request failed */
+		            var pTagSettings = {'color': 'red', 'font-weight': 'bold'};
+            		var pTag = $('<p/>').text('There was an error: '+errorThrown).css(pTagSettings);
+            		$('body').prepend(pTag);
+		        });
+		    });
 			/* Number formating method. */
 			function numberWithCommas(x) {
 			    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			}
+			};
 		</script>
 	</head>
 	<body>
