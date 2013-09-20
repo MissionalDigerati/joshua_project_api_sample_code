@@ -39,7 +39,17 @@ if (!is_array($decoded_json)) {
 	echo "Unable to retrieve the JSON.";
 	exit;
 }
+/**
+ * Assign the first object to a variable
+ *
+ * @author Johnathan Pulos
+ */
 $unreached = $decoded_json[0];
+/**
+ * Handle the null value
+ *
+ * @author Johnathan Pulos
+ */
 if ($unreached['PercentEvangelical'] == null) {
 	$unreached['PercentEvangelical'] = 0;
 }
