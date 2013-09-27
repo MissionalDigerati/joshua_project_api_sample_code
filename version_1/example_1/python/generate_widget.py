@@ -7,7 +7,7 @@ import string
 import sys
 # set some important variables
 domain = "http://jpapi.codingstudio.org"
-api_key = "4a2bab35f1c7"
+api_key = YOUR_API_KEY
 api_url = domain+"/v1/people_groups/daily_unreached.json?api_key="+api_key
 try:
     # request the API for the Daily Unreached People Group
