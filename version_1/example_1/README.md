@@ -8,51 +8,51 @@ Javascript
 
 ###Files
 
-* [sample_javascript.html](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/sample_javascript.html)
-* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/css/styles.css)
+* [index.html](https://github.com/MissionalDigerati/joshua_project_api_sample_code/tree/master/version_1/example_1/javascript/index.html)
+* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/tree/master/version_1/example_1/javascript/css/styles.css)
 
 ###Instructions
 
-1. Open the sample_javascript.html file, and add your API key
+1. Open the index.html file, and add your API key
 2. Save and close the file
-3. Now open the sample_javascript.html in your favorite browser
+3. Now open the index.html in your favorite browser
 
 PHP
 ===
 
 ###Files
 
-* [sample_php.php](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/sample_php.php)
-* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/css/styles.css)
+* [index.php](https://github.com/MissionalDigerati/joshua_project_api_sample_code/tree/master/version_1/example_1/php/index.php)
+* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/tree/master/version_1/example_1/php/css/styles.css)
 
 ###Instructions
 
 In order to run the PHP script locally,  you will need to have PHP running on your local machine.
 
-1. Open the sample_php.php file, and add your API key
+1. Open the index.php file, and add your API key
 2. Save and close the file
-3. Now open the sample_php.php in your favorite browser (You will need a Virtual Host setup for this)
+3. Now open the index.php in your favorite browser (You will need a Virtual Host setup for this)
 
 Python
 ======
 
 ###Files
 
-* [python/sample_python.py](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/python/sample_python.py)
-* [python/views/index.html](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/python/views/index.html)
-* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/css/styles.css)
+* [generate_widget.py](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/version_1/example_1/python/generate_widget.py)
+* [templates/index.html](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/version_1/example_1/python/templates/index.html)
+* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/version_1/example_1/python/css/styles.css)
 
 ###Requirements
 
-You will need Python on your local machine, and the ability to run it from Terminal.
+You will need Python on your local machine, and the ability to run it from your command line utility.
 
 ###Instructions
 
 The provided Python script will generated the appropriate HTML file for previewing the Unreached People of the Day widget.  Here is how you generate the file:
 
-1. Open the sample_python.py file, and add your API key
+1. Open the generate_widget.py file, and add your API key
 2. Save and close the file
-3. In your terminal run `python sample_python.py`
+3. In your terminal run `python generate_widget.py`
 4. Now open the "generated_code/widget.html" in your favorite browser
 
 Ruby
@@ -60,24 +60,23 @@ Ruby
 
 ###Files
 
-* [ruby/sample_ruby.rb](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/ruby/sample_ruby.rb)
-* [ruby/views/index.html.erb](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/ruby/views/index.html.erb)
-* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/v1/daily_unreached/css/styles.css)
+* [generate_widget.rb](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/version_1/example_1/ruby/generate_widget.rb)
+* [templates/index.html.erb](hhttps://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/version_1/example_1/ruby/templates/index.html.erb)
+* [css/styles.css](https://github.com/MissionalDigerati/joshua_project_api_sample_code/blob/master/version_1/example_1/ruby/css/styles.css)
 
 ###Requirements
 
 You need to install the following gems:
 
 * [Erubis](http://rubygems.org/gems/erubis)
-* [JSON](http://rubygems.org/gems/json)
 
-You will also need Ruby on your local machine, and the ability to run it from Terminal.
+You will also need Ruby on your local machine, and the ability to run it from command line utility.
 
 ###Instructions
 
 The provided Ruby script will generated the appropriate HTML file for previewing the Unreached People of the Day widget.  Here is how you generate the file:
 
-1. Open the sample_ruby.rb file, and add your API key
+1. Open the generate_widget.rb file, and add your API key
 2. Save and close the file
-3. In your terminal run `ruby sample_ruby.rb`
+3. In your terminal run `ruby generate_widget.rb`
 4. Now open the "generated_code/widget.html" in your favorite browser
