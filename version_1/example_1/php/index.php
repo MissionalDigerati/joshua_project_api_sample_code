@@ -50,8 +50,8 @@ $unreached = $decoded_json[0];
  *
  * @author Johnathan Pulos
  */
-if ($unreached['PercentEvangelical'] == null) {
-	$unreached['PercentEvangelical'] = 0;
+if ($unreached['PCEvangelical'] == null) {
+	$unreached['PCEvangelical'] = 0;
 }
 /**
  * Start the rendering
@@ -80,7 +80,7 @@ if ($unreached['PercentEvangelical'] == null) {
 	        </div>
 	        <div class="upgotd upgotd-pray">Please pray for the ...</div>
 	        <div class="upgotd upgotd-people">
-	        	<a href="<?php echo $unreached['PeopleGroupURL']; ?>" class="upgotd-link pg-link pg-name"><?php echo $unreached['PeopNameInCountry']; ?></a> of <a href="<?php echo $unreached['CountryURL']; ?>" class="upgotd-link country-link country-name"><?php echo $unreached['Ctry']; ?></a>
+	        	<a href="<?php echo $unreached['PeopleGroupURL']; ?>" class="upgotd-link pg-link pg-name"><?php echo $unreached['PeopNameInCountry']; ?></a> of <a href="<?php echo $unreached['CountryURL']; ?>" class="upgotd-link country-link country-name"><?php echo $unreached['Country']; ?></a>
 	        </div>
 	        <table align="center" class="upgotd-table" cellpadding="0" cellspacing="0">
 	            <tbody><tr>
@@ -97,7 +97,7 @@ if ($unreached['PercentEvangelical'] == null) {
 	            </tr>
 	            <tr>
 	                <td>Evangelical:</td>
-	                <td class="pg-evangelical"><?php echo number_format($unreached['PercentEvangelical'], 2); ?>%</td>
+	                <td class="pg-evangelical"><?php echo number_format($unreached['PCEvangelical'], 2); ?>%</td>
 	            </tr>
 	            <tr>
 	                <td>Status:</td>
