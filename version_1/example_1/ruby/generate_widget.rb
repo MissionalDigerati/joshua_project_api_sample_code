@@ -25,11 +25,11 @@ end
 # format the population to a comma seperated value
 unreached['Population'] = unreached['Population'].to_s.gsub(/(\d)(?=(\d{3})+$)/,'\1,')
 # Lets handle the evangelical number since it can be nil
-if unreached['PercentEvangelical'].nil?
-	unreached['PercentEvangelical'] = "0.00"
+if unreached['PCEvangelical'].nil?
+	unreached['PCEvangelical'] = "0.00"
 else
 	# format the percent to a floating point (decimal)
-	unreached['PercentEvangelical'] = '%.2f' % unreached['PercentEvangelical']
+	unreached['PCEvangelical'] = '%.2f' % unreached['PCEvangelical']
 end
 # Generate the template
 template_file = File.read("templates/index.html.erb")
