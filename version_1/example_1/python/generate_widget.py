@@ -29,10 +29,10 @@ else:
     # format population to be a comma seperated integer
     unreached['Population'] = format(int(unreached['Population']), ',d')
     # check if percent of Evangelicals is None
-    if unreached['PercentEvangelical'] is None:
-        unreached['PercentEvangelical'] = '0'
+    if unreached['PCEvangelical'] is None:
+        unreached['PCEvangelical'] = '0'
     # format percent of Evangelicals to percent
-    unreached['PercentEvangelical'] = float(unreached['PercentEvangelical'])
+    unreached['PCEvangelical'] = float(unreached['PCEvangelical'])
     # get the template file
     index_file = open('templates/index.html').read()
     # initialize a new template
