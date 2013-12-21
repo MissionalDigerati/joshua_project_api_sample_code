@@ -37,7 +37,7 @@ along with this program.  If not, see
 		        .done(function(data) {
 		        	/* Set the text of each class to the appropriate data */
 		        	var unreached = data[0];
-		        	$('.country-name').text(unreached['Country']);
+		        	$('.country-name').text(unreached['Ctry']);
 		        	$('.pg-language').text(unreached['PrimaryLanguageName']);
 		        	$('.pg-name').text(unreached['PeopNameInCountry']);
 		        	$('.pg-religion').text(unreached['PrimaryReligion']);
@@ -53,10 +53,10 @@ along with this program.  If not, see
             		var scaleImg = $('<img/>').attr('src', unreached['JPScaleImageURL']);
             		$('#progress-scale-image').append(scaleImg);
             		/* Set the Percent Evangelical */
-					if (unreached['PCEvangelical'] == null) {
+					if (unreached['PercentEvangelical'] == null) {
 						percent_evangelical = '0.00';
 					} else {
-						percent_evangelical = parseFloat(unreached['PCEvangelical']).toFixed(2);
+						percent_evangelical = parseFloat(unreached['PercentEvangelical']).toFixed(2);
 					}; 
 					$('.pg-evangelical').text(percent_evangelical+'%');
 					/* Set the Population */
